@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import styles from "./form.module.css";
 function Form(props) {
   const [todo, setTodo] = useState("");
   function handleInputChange(e) {
@@ -11,9 +12,17 @@ function Form(props) {
     setTodo("");
   }
   return (
-    <form action="" onSubmit={handleSubmit}>
-      <input onChange={handleInputChange} value={todo} type="text" />
-      <button type="submit">Add</button>
+    <form className={styles.todoform} action="" onSubmit={handleSubmit}>
+      <input
+        className={styles.todoinput}
+        onChange={handleInputChange}
+        value={todo}
+        type="text"
+        placeholder="Enter Todo Item..."
+      />
+      <button className={styles.todoAdd} type="submit">
+        Add
+      </button>
     </form>
   );
 }

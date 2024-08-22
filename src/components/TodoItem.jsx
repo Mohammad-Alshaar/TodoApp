@@ -1,6 +1,14 @@
 import PropTypes from "prop-types";
+import styles from "./todoItem.module.css";
 function TodoItem({ item }) {
-  return <h3>{item}</h3>;
+  return (
+    <div className={styles.item}>
+      {item}
+      <button onClick={handleDelete} className={styles.deletebutton}>
+        x
+      </button>
+    </div>
+  );
 }
 TodoItem.propTypes = {
   item: PropTypes.string,
