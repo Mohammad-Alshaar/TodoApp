@@ -1,7 +1,13 @@
 import TodoItem from "./TodoItem";
 
 function TodoList(props) {
-  return props.todos.map((item, index) => (
+  const sortedTodos = props.todos
+    .slice()
+    .sort((a, b) => Number(a.done) - Number(b.done));
+
+  console.log(sortedTodos);
+
+  return sortedTodos.map((item, index) => (
     <TodoItem
       item={item}
       key={index}
