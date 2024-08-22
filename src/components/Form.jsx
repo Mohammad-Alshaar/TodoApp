@@ -2,21 +2,21 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./form.module.css";
 function Form(props) {
-  const [todo, setTodo] = useState("");
+  const [todo, setTodo] = useState({ name: "", done: false });
   function handleInputChange(e) {
-    setTodo(e.target.value);
+    setTodo({ name: e.target.value, done: false });
   }
   function handleSubmit(e) {
     e.preventDefault();
     props.setTodos((t) => [...t, todo]);
-    setTodo("");
+    setTodo({ name: "", done: false });
   }
   return (
     <form className={styles.todoform} action="" onSubmit={handleSubmit}>
       <input
         className={styles.todoinput}
         onChange={handleInputChange}
-        value={todo}
+        value={todo.name}
         type="text"
         placeholder="Enter Todo Item..."
       />
